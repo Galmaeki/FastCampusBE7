@@ -14,4 +14,12 @@ public class NumberDTO {
     public void setResult(double d){
         result = d;
     }
+
+    public void setNum1(int num1) {
+        Num1 = num1;
+    }
+
+    public void setNum2(int num2) {
+        Num2 = num2;
+    }
 }
