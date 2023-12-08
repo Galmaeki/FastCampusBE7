@@ -33,6 +33,8 @@ public class CalcController {
                 }
             }
         }
+            view.inputNumber(dto);
+        }//
     }
 
 }
