@@ -12,10 +12,6 @@ public class NumberDTO {
         return Num2;
     }
 
-    public double getResult() {
-        return result;
-    }
-
     public void setResult(double d){
         result = d;
     }
@@ -26,5 +22,9 @@ public class NumberDTO {
 
     public void setNum2(int num2) {
         Num2 = num2;
+    }
+
+    public double getResult() {
+        return result;
     }
 }

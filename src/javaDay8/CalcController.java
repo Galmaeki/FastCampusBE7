@@ -16,8 +16,32 @@ public class CalcController {
         // while에 로직을 구현하시오.(연산자에 따라서 switch~ case로 분기 하면 된다.)
         while (true) {
             NumberDTO dto = new NumberDTO();
-            view.inputNumber(dto);
-        }//
+            String op = view.inputNumber(dto);
+            if (op.equals("E")) {
+                view.endCalc();
+                break;
+            } else {
+                try {
+                    switch (op) {
+                        case "+":
+                            service.add(dto);
+                            break;
+                        case "-":
+                            service.sub(dto);
+                            break;
+                        case "*":
+                            service.mul(dto);
+                            break;
+                        case "/":
+                            service.div(dto);
+                            break;
+                    }
+                    view.printResult(dto, op);
+                }catch (ArithmeticException e){
+                    view.divZero();
+                }
+            }
+        }
     }
 
 }
