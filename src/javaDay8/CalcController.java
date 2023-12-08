@@ -15,6 +15,8 @@ public class CalcController {
         CalcView view = new CalcView();
         // while에 로직을 구현하시오.(연산자에 따라서 switch~ case로 분기 하면 된다.)
         while (true) {
+            NumberDTO dto = new NumberDTO();
+            view.inputNumber(dto);
         }//
     }
 
