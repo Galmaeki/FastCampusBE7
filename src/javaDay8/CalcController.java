@@ -1,10 +1,6 @@
 package javaDay8;
 
 public class CalcController {
-    // TODO
-    //  * 뷰 클래스(CalcView)를 이용하여 데이터를 입력 받는다.
-    //  * 계산된 결과는 뷰 클래스(CalcView)의 printResult 메서드를 이용하여 출력한다.
-    //  * 계산기 프로그램은 계속 동작 하되 연산자에 E라는 문자가 들어오면 프로그램을 종료할 것
     ICalcService service;
 
     public CalcController(ICalcService service) {
@@ -23,18 +19,10 @@ public class CalcController {
             } else {
                 try {
                     switch (op) {
-                        case "+":
-                            service.add(dto);
-                            break;
-                        case "-":
-                            service.sub(dto);
-                            break;
-                        case "*":
-                            service.mul(dto);
-                            break;
-                        case "/":
-                            service.div(dto);
-                            break;
+                        case "+" -> service.add(dto);
+                        case "-" -> service.sub(dto);
+                        case "*" -> service.mul(dto);
+                        case "/" -> service.div(dto);
                     }
                     view.printResult(dto, op);
                 }catch (ArithmeticException e){
