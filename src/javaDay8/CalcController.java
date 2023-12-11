@@ -1,10 +1,6 @@
 package javaDay8;
 
 public class CalcController {
-    // TODO
-    //  * 뷰 클래스(CalcView)를 이용하여 데이터를 입력 받는다.
-    //  * 계산된 결과는 뷰 클래스(CalcView)의 printResult 메서드를 이용하여 출력한다.
-    //  * 계산기 프로그램은 계속 동작 하되 연산자에 E라는 문자가 들어오면 프로그램을 종료할 것
     ICalcService service;
 
     public CalcController(ICalcService service) {
@@ -13,9 +9,30 @@ public class CalcController {
 
     public void applicationStart() {
         CalcView view = new CalcView();
-        // while에 로직을 구현하시오.(연산자에 따라서 switch~ case로 분기 하면 된다.)
         while (true) {
             NumberDTO dto = new NumberDTO();
+            String op = view.inputNumber(dto);
+            if (op.equals("E")) {
+                //연산자에 E가 들어오는 경우 프로그램을 종료
+                view.endCalc();
+                break;
+            } else {
+                try {
+                    //0으로 나누는 경우를 컨트롤러 단에서 처리하기 위해 try를 사용
+                    switch (op) {
+                        //향상된 switch문으로 가독성 향상
+                        case "+" -> service.add(dto);
+                        case "-" -> service.sub(dto);
+                        case "*" -> service.mul(dto);
+                        case "/" -> service.div(dto);
+                    }
+                    view.printResult(dto, op);
+                }catch (ArithmeticException e){
+                    //0으로 나누는 경우 발생할 예외 핸들링
+                    view.divZero();
+                }
+            }
+        }
             view.inputNumber(dto);
         }//
     }
