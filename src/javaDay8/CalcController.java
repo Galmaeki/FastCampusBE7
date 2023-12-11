@@ -37,6 +37,10 @@ public class CalcController {
                             service.div(dto);
                             view.printResult(dto, op);
                         }
+                        case "%" -> {
+                            service.rem(dto);
+                            view.printResult(dto, op);
+                        }
                         default -> view.returnStart();
                     }
 
