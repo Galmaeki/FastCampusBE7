@@ -27,14 +27,12 @@ public class CalcController {
                         case "/" -> service.div(dto);
                     }
                     view.printResult(dto, op);
-                }catch (ArithmeticException e){
+                } catch (ArithmeticException e) {
                     //0으로 나누는 경우 발생할 예외 핸들링
                     view.divZero();
                 }
             }
         }
-            view.inputNumber(dto);
-        }//
-    }
 
+    }
 }
