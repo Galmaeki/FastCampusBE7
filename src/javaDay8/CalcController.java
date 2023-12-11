@@ -21,12 +21,25 @@ public class CalcController {
                     //0으로 나누는 경우를 컨트롤러 단에서 처리하기 위해 try를 사용
                     switch (op) {
                         //향상된 switch문으로 가독성 향상
-                        case "+" -> service.add(dto);
-                        case "-" -> service.sub(dto);
-                        case "*" -> service.mul(dto);
-                        case "/" -> service.div(dto);
+                        case "+" -> {
+                            service.add(dto);
+                            view.printResult(dto, op);
+                        }
+                        case "-" -> {
+                            service.sub(dto);
+                            view.printResult(dto, op);
+                        }
+                        case "*" -> {
+                            service.mul(dto);
+                            view.printResult(dto, op);
+                        }
+                        case "/" -> {
+                            service.div(dto);
+                            view.printResult(dto, op);
+                        }
+                        default -> view.returnStart();
                     }
-                    view.printResult(dto, op);
+
                 } catch (ArithmeticException e) {
                     //0으로 나누는 경우 발생할 예외 핸들링
                     view.divZero();

@@ -42,4 +42,8 @@ public class CalcView {
         //0으로 나눌 경우 발생할 예외에 대한 안내
         System.out.println("0으로 나눌 수 없습니다 \n처음으로 돌아갑니다");
     }
+
+    public void returnStart(){
+        System.out.println("연산자가 올바르지 않습니다 \n처음으로 돌아갑니다");
+    }
 }
